@@ -8,10 +8,8 @@ routes.get('/', (req, res) => {
     })
 })
 
-routes.post('/dev', (req, res) => {
-    return res.json({
-        ok: true
-    })
+routes.post('/devs', (req, res) => {
+    return res.json(req.body)
 })
 
 module.exports = routes
