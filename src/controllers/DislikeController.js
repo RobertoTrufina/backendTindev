@@ -6,11 +6,12 @@ module.exports = {
         console.log(req.headers.user)
 
         const {
-            devId
-        } = req.params
-        const {
             user
         } = req.headers
+
+        const {
+            devId
+        } = req.params
 
         const loggedDev = await Dev.findById(user)
         const targetDev = await Dev.findById(devId)
@@ -21,11 +22,7 @@ module.exports = {
             })
         }
 
-        if (targetDev.likes.includes(loggedDev._id)) {
-            console.log('DEU MATCH')
-        }
-
-        loggedDev.likes.push(targetDev._id)
+        loggedDev.dislikes.push(targetDev._id)
 
         await loggedDev.save()
 
